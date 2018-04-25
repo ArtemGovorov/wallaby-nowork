@@ -1,0 +1,108 @@
+{
+  "name": "wallaby-nowork",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0-beta.40",
+    "@rails/webpacker": "^3.2.1",
+    "classcat": "^3.0.2",
+    "qs": "^6.5.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "styled-components": "^3.2.1",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.42",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
+    "@babel/plugin-syntax-typescript": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/preset-typescript": "^7.0.0-beta.40",
+    "@storybook/react": "^3.3.11",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^7",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "8.0.0-beta.0",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-runtime": "^6.26.0",
+    "colors": "^1.2.1",
+    "commander": "^2.15.1",
+    "compression-webpack-plugin": "^0.4.0",
+    "css-loader": "^0.28.0",
+    "dotenv": "^5.0.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-to-json": "^3.3.3",
+    "exports-loader": "^0.7.0",
+    "husky": "^0.14.3",
+    "imports-loader": "^0.8.0",
+    "inquirer": "^5.1.0",
+    "jest": "^21.1.0",
+    "jest-localstorage-mock": "^2.2.0",
+    "jest-styled-components": "^5.0.0",
+    "jshint": "^2.9.5",
+    "lint-staged": "^7.0.0",
+    "null-loader": "^0.1.1",
+    "prettier": "^1.10.2",
+    "rails-erb-loader": "^3.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-test-renderer": "^16.1.1",
+    "redux-jest": "^1.1.1",
+    "redux-logger": "3.0.6",
+    "regenerator-runtime": "^0.11.1",
+    "stylint": "^1.5.9",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "config": {
+    "jsfiles": "{app,__{tests,mocks}__}/**/*.{js,jsx}",
+    "prettierpath": "{,!(node_modules)/**/}*.{js,jsx,json,babelrc}"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,md}": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --onlyChanged",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start": "./bin/webpack-dev-server",
+    "build": "./bin/webpack",
+    "test": "jest --maxWorkers=4 --verbose --coverage",
+    "lint": "eslint $npm_package_config_jsfiles",
+    "lint:fix": "eslint $npm_package_config_jsfiles --fix",
+    "precommit": "lint-staged",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "release": "node ./scripts/release.js"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "<rootDir>/app/javascript"
+    ],
+    "setupTestFrameworkScriptFile": "./config/jest/setupTest.js",
+    "setupFiles": [
+      "./config/jest/testShim.js",
+      "./config/jest/testSetup.js",
+      "jest-localstorage-mock"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "roots": [
+      "./app/javascript/root"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "testRegex": "((\\.|/)test)\\.(js|jsx)$"
+  }
+}
