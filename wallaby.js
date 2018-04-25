@@ -5,9 +5,9 @@ module.exports = (wallaby) => {
     files: [
       'sum.js',
       'app/javascript/root/utils/urls.js',
+      'config/jest/testSetup.js',
     ],
     tests: [
-      'config/jest/testSetup.js',
       'sum-test.js',
       'app/javascript/root/utils/url.test.js'
     ],
