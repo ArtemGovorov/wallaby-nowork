@@ -86,10 +86,10 @@
       "node_modules",
       "<rootDir>/app/javascript"
     ],
-    "setupTestFrameworkScriptFile": "./config/jest/setupTest.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setupTest.js",
     "setupFiles": [
-      "./config/jest/testShim.js",
-      "./config/jest/testSetup.js",
+      "<rootDir>/config/jest/testShim.js",
+      "<rootDir>/config/jest/testSetup.js",
       "jest-localstorage-mock"
     ],
     "snapshotSerializers": [
